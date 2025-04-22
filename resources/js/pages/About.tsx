@@ -27,8 +27,7 @@ const About = () => {
                                 </div>
 
                             </Link>
-                            <li className="nav-item">Contact Us</li>
-                        </ul>
+                            <Link href="contact" className="nav-item">Contact Us</Link>                        </ul>
 
                         <div className="auth">
                             {auth.user ? (

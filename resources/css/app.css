@@ -162,4 +162,32 @@
     padding-right: 5px;
 }
 
+.my-button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-weight: bold;
+  
+    transition: all 0.05s ease-in-out;
+  
+    color: white;
+    background-color: #facc15; 
+    border: 1px solid #fcd34d;  
+  
+    margin-left: 0.75rem; 
+    margin-right: 0.75rem;
+    padding-left: 0.75rem; 
+    padding-right: 0.75rem;
+    padding-top: 0.75rem; 
+    padding-bottom: 0.75rem;
+  }
+  
+  .my-button:hover {
+    background-color: #fafaf1;
+    color: #cda818;
+    border-color: #fcd34d;
+  }
+  
 
