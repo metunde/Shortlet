@@ -1,5 +1,6 @@
 import React, {useState} from 'react'
-import { usePage, router } from '@inertiajs/react'
+import { usePage, router, Link } from '@inertiajs/react'
+import Header from "../components/header"
 
 interface Apartment {
   id: number
@@ -31,11 +32,20 @@ const [selectedApartment, setSelectedApartment] = useState<Apartment | null>(nul
   
 
   return (
-    <div className="p-6">
+
+    <div className="pt-0 p-6">
+      <Header/>
       <h1 className="text-2xl font-bold mb-4">Apartments</h1>
+
+      <Link
+      href='/upload'
+                  className="bg-red-500 mb-4 text-white px-2 py-1 rounded hover:bg-red-600"
+                >
+                  New Apartment
+                </Link>
       <table className="min-w-full border border-gray-300">
         <thead>
-          <tr className="bg-gray-100">
+          <tr className="bg-gray-100 text-black">
             <th className="p-2 border">Location</th>
             <th className="p-2 border">Stars</th>
             <th className="p-2 border">Description</th>

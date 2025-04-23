@@ -2,7 +2,8 @@ import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
 import { Sidebar, SidebarContent, SidebarFooter, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from '@/components/ui/sidebar';
 import { type NavItem } from '@/types';
-import { LayoutGrid } from 'lucide-react';
+import { LayoutGrid, House, PlusCircle } from 'lucide-react';
+
 
 const mainNavItems: NavItem[] = [
     {
@@ -10,6 +11,17 @@ const mainNavItems: NavItem[] = [
         href: '/dashboard',
         icon: LayoutGrid,
     },
+    {
+        title: 'New Apartment',
+        href : "/upload",
+        icon : PlusCircle
+    }
+    ,
+    {
+        title: 'Manage Apartments',
+        href : "/apartments"
+        , icon : House
+    }
 ];
 
 

@@ -1,5 +1,4 @@
-import { type SharedData } from '@/types';
-import { Head, Link, usePage } from '@inertiajs/react';
+import { Head } from '@inertiajs/react';
 import aparte2 from "../../images/lagos.jpg";
 import aparte from '../../images/aparte.jpg';
 import aparte3 from '../../images/aparte3.jpg';
@@ -8,11 +7,12 @@ import man1 from "../../images/man1.jpg"
 import man2 from "../../images/man2.jpg"
 import woman1 from "../../images/woman1.jpg"
 import woman2 from "../../images/woman2.jpg"
-import { ArrowLeft, ArrowRight, Mail, PhoneOutgoing, Search, Star, } from 'lucide-react';
+import Header from '../../js/components/header'
+import Foot from '../../js/components/Footer'
+import { ArrowLeft, ArrowRight,Search, Star, } from 'lucide-react';
 import { useState, useEffect, useCallback } from 'react';
 
 export default function Welcome() {
-    const { auth } = usePage<SharedData>().props;
 
     const [imgIndex, setImgIndex] = useState(0)
 
@@ -58,53 +58,7 @@ export default function Welcome() {
                 <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
             </Head>
             <div className="flex w-full min-h-screen flex-col items-center bg-[#fafaf1] text-[#EDEDEC] lg:justify-center">
-                <header className="w-full text-sm not-has-[nav]:hidden bg-[#000] sticky top-0 z-1">
-                    <nav className="flex p-3 items-center justify-between cursor-pointer text-yellow-500 border-b-yellow-400 border-b">
-                        <Link href='/' className='flex flex-row'>Dreamer's Nest</Link>
-
-                        <ul className='flex text-[1rem] flex-row justify-evenly '>
-                            <Link href='/' className="nav-item ml-2 hover:text-white">Home
-
-                            </Link>
-                            <Link href='about' className="nav-item ml-2 hover:text-white">About Us</Link>
-                            <Link href='properties' className="relative ml-2 nav-item group hover:text-white">Properties
-                                <div className='absolute bg-[#000] text-yellow-500 rounded-[3px] px-4 py-2 sub-menu hidden group-hover:flex-col group-hover:flex '>
-                                    <Link className='py-1 hover:text-white' href='shortlet'>Shortlet</Link>
-                                    <Link className='py-1 hover:text-white' href='rent'>Rent</Link>
-                                    <Link className='py-1 hover:text-white' href='sale'>Sale</Link>
-                                </div>
-
-                            </Link>
-                            <Link href="contact" className="nav-item ml-2 hover:text-white">Contact Us</Link>                        </ul>
-
-                        <div className="auth">
-                            {auth.user ? (
-                                <Link
-                                    href={route('dashboard')}
-                                    className="inline-block rounded-sm border transition-all delay-50 border-[#19140035] px-5 py-1.5 text-sm leading-normal  hover:border-[#1915014a] dark:border-[#3E3E3A] dark:text-[#EDEDEC] hover:bg-yellow-500 hover:text-white"
-                                >
-                                    Dashboard
-                                </Link>
-                            ) : (
-                                <>
-                                    <Link
-                                        href={route('login')}
-                                        className="inline-block rounded-sm transition-all delay-50 border border-transparent px-5 py-1.5 text-sm leading-normal mr-1  hover:border-[#19140035]  dark:hover:border-[#3E3E3A]  hover:bg-yellow-500 hover:text-white"
-                                    >
-                                        Log in
-                                    </Link>
-                                    <Link
-                                        href={route('register')}
-                                        className="inline-block rounded-sm border transition-all delay-50 border-[#19140035] px-5 py-1.5 text-sm leading-normal  hover:border-[#1915014a] dark:border-[#3E3E3A]  dark:hover:border-[#62605b]  hover:bg-yellow-500 hover:text-white"
-                                    >
-                                        Register
-                                    </Link>
-                                </>
-                            )}
-                        </div>
-
-                    </nav>
-                </header>
+                <Header/>
 
                 <div className="flex w-full items-center opacity-100 transition-all delay-75 duration-750 lg:grow starting:opacity-0">
                     <main className="flex w-full flex-col text-sm">
@@ -841,49 +795,7 @@ export default function Welcome() {
           </section>
 
                         {/* footer section starts */}
-                        <section className='flex w-full flex-row px-8 py-14 bg-[#000] text-yellow-500 items-start justify-center'>
-                            <div className="flex-col flex mx-3  flex-1/3 py-3">
-                                <span className="text-2xl py-1">About Us</span>
-                                <span>
-                                    At Dreamers Nest, we redefine modern living by offering premium serviced accommodation and corporate letting solutions. Our mission is to provide high-quality, fully furnished homes tailored to the needs of business travelers, professionals, and short-term residents.</span>
-                            </div>
-                            <div className="flex-col flex mx-3 flex-1/3 py-3">
-                                <span className='text-2xl w-full flex py-1'>Contact Us </span>
-
-                                <div className="flex-flx-col">
-                                    <div className='flex flex-row my-1'><PhoneOutgoing className='w-4 fill-amber-500 hover:fill-none px-0.5' color="gold" strokeWidth={1.25} />07442407829</div>
-                                    <div className='flex flex-row my-1'><PhoneOutgoing className='w-4 fill-amber-500 hover:fill-none px-0.5' color="gold" strokeWidth={1.25} />07377603180</div>
-                                    <div className='flex flex-row my-1'><Mail className='w-4 fill-amber-500 hover:fill-none px-0.5' color="white" strokeWidth={1.25} /> dreamernest@gmail.com</div>
-                                </div>
-
-
-                            </div>
-                            <div className="flex-col flex mx-3 flex-1/3 py-3">
-                                <span className='text-2xl py-1'>Connect with us on</span>
-                                <div className="flex flex-row my-1"><i className="text-amber-500 fa-brands fa-whatsapp px-0.5"></i>WhatsApp</div>
-                                <div className="flex flex-row my-1"><i className="text-amber-500 fa-brands fa-tiktok px-0.5"></i>TikTok</div>
-                                <div className="flex flex-row my-1"><i className="text-amber-500 fa-brands fa-instagram px-0.5"></i>Instagram</div>
-                                <div className="flex flex-row my-1"><i className="text-amber-500 fa-brands fa-telegram px-0.5"></i>telegram</div>
-
-
-
-                            </div>
-                            <div className="flex-col flex mx-3 flex-1/3 py-3">
-                                <div className="flex text-2xl py-1">Useful Links</div>
-                                <ul>
-                                    <li>FAQs</li>
-                                    <li>Our Values</li>
-                                    <li>Our Services</li>
-                                    <li>Book With Us</li>
-                                    <li></li>
-                                </ul>
-
-
-                            </div>
-
-
-
-                        </section>
+                      <Foot/>
                         {/* Footer section ends */}
 
 

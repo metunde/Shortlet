@@ -54,16 +54,6 @@ const Upload = () => {
                 </div>
                 <button type="submit" disabled={processing}>Submit</button>
                 </form>
-
-
-                {/* <div className="show">
-                    <div className="">{data.location}</div>
-                    <div className="">{data.description}</div>
-                    <div className="">{data.price}</div>
-                    <div className="">{data.stars}</div>
-                    <div className="">{data.amenities}</div>
-                    <div className="">{data.guest_no}</div>
-                </div> */}
         </div>
     )
 }
