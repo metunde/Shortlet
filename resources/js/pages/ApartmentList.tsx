@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
-import { usePage, router, Link } from '@inertiajs/react'
+import { usePage, router} from '@inertiajs/react'
 import Header from "../components/header"
+import Upload from "./Upload"
 
 interface Apartment {
   id: number
@@ -16,6 +17,8 @@ interface Apartment {
 export default function ApartmentList() {
     const [isEditing, setIsEditing] = useState(false)
 const [selectedApartment, setSelectedApartment] = useState<Apartment | null>(null)
+const [showUpload, setShowUpload] = useState(false);
+
 
   const { apartments } = usePage().props as unknown as { apartments: Apartment[] }
 
@@ -37,12 +40,13 @@ const [selectedApartment, setSelectedApartment] = useState<Apartment | null>(nul
       <Header/>
       <h1 className="text-2xl font-bold mb-4">Apartments</h1>
 
-      <Link
-      href='/upload'
+      <button
+                      onClick={() => setShowUpload(true)}
+
                   className="bg-red-500 mb-4 text-white px-2 py-1 rounded hover:bg-red-600"
                 >
                   New Apartment
-                </Link>
+                </button>
       <table className="min-w-full border border-gray-300">
         <thead>
           <tr className="bg-gray-100 text-black">
@@ -190,9 +194,14 @@ const [selectedApartment, setSelectedApartment] = useState<Apartment | null>(nul
         </div>
       </form>
     </div>
+
+   
   </div>
 )}
 
+{showUpload && (
+                <Upload  onClose={() => setShowUpload(false)} />
+            )}
     </div>
   )
 }
